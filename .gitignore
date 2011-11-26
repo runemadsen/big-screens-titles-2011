@@ -4,6 +4,7 @@
 
 build/
 bin/data
+export/
 
 .xcodeproj/ !*.xcodeproj/project.pbxproj
 xcuserdata
