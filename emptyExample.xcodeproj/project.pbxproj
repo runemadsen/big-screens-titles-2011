@@ -18,6 +18,7 @@
 		A5AB77511476A997005FED66 /* Tweenable1DValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5AB77481476A997005FED66 /* Tweenable1DValue.cpp */; };
 		A5AB77521476A997005FED66 /* Tweenable2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5AB774A1476A997005FED66 /* Tweenable2D.cpp */; };
 		A5AB77531476A997005FED66 /* TweenProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5AB774D1476A997005FED66 /* TweenProperties.cpp */; };
+		A5B4735B148152E90089E587 /* Lanterns.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5B47359148152E90089E587 /* Lanterns.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -93,6 +94,8 @@
 		A5AB774C1476A997005FED66 /* TweeningTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweeningTimer.h; sourceTree = "<group>"; };
 		A5AB774D1476A997005FED66 /* TweenProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TweenProperties.cpp; sourceTree = "<group>"; };
 		A5AB774E1476A997005FED66 /* TweenProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweenProperties.h; sourceTree = "<group>"; };
+		A5B47359148152E90089E587 /* Lanterns.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Lanterns.cpp; path = "../../../../../../../../../Users/rune/Projects/Open Frameworks/of_preRelease_v007_osx/apps/bigscreens/emptyExample/src/Lanterns.cpp"; sourceTree = "<group>"; };
+		A5B4735A148152E90089E587 /* Lanterns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lanterns.h; path = "../../../../../../../../../Users/rune/Projects/Open Frameworks/of_preRelease_v007_osx/apps/bigscreens/emptyExample/src/Lanterns.h"; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -279,6 +282,8 @@
 				A5842A521474AE3B00FD92F2 /* Title.cpp */,
 				A5842A531474AE3B00FD92F2 /* Title.h */,
 				A5AB773214757D75005FED66 /* Tools.h */,
+				A5B47359148152E90089E587 /* Lanterns.cpp */,
+				A5B4735A148152E90089E587 /* Lanterns.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -389,6 +394,7 @@
 				A5AB77511476A997005FED66 /* Tweenable1DValue.cpp in Sources */,
 				A5AB77521476A997005FED66 /* Tweenable2D.cpp in Sources */,
 				A5AB77531476A997005FED66 /* TweenProperties.cpp in Sources */,
+				A5B4735B148152E90089E587 /* Lanterns.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

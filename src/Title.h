@@ -6,7 +6,7 @@
 class Title : public Tweenable2D
 {
 public:
-    Title(float scale, int xPos, int yPos, string group, string project_line1, string project_line2);
+    Title(float scale, int xPos, int yPos, string group_line1, string group_line2, string project_line1, string project_line2);
     void update();
     void draw();
     
@@ -14,7 +14,8 @@ public:
     
     ofPoint _location;
     float _scale;
-    string _group;
+    string _group_line1;
+    string _group_line2;
     string _project_line1;
     string _project_line2;
     

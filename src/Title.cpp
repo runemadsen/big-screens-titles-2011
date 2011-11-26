@@ -1,6 +1,6 @@
 #include "Title.h"
 
-Title::Title(float scale, int xPos, int yPos, string group, string project_line1, string project_line2)
+Title::Title(float scale, int xPos, int yPos, string group_line1, string group_line2, string project_line1, string project_line2)
 {
     if (ofGetWidth() != 3840) 
     {
@@ -12,7 +12,8 @@ Title::Title(float scale, int xPos, int yPos, string group, string project_line1
     
     _scale = scale;
     pos.set(xPos,yPos,0);
-    _group = group;
+    _group_line1 = group_line1;
+    _group_line2 = group_line2;
     _project_line1 = Tools::toUpperCase(project_line1);
     _project_line2 = Tools::toUpperCase(project_line2);
     
@@ -45,9 +46,17 @@ void Title::draw()
         draw_line(pos.x, y, _project_line2);
     }
     
+    // draw group line 1
     ofSetColor(255, 255, 255, alpha);
     y += _font_size * 2;
-    _light_font.drawString(_group, pos.x, y);
+    _light_font.drawString(_group_line1, pos.x, y);
+    
+    // draw group line 2
+    if(_group_line2 != "NULL")
+    {
+        y += _light_font_size * 1.8;
+        _light_font.drawString(_group_line2, pos.x, y);
+    }
     
     ofDisableAlphaBlending();
 }

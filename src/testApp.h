@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
 #include "Title.h"
+#include "Lanterns.h"
 
 class testApp : public ofBaseApp{
 
@@ -27,7 +28,8 @@ class testApp : public ofBaseApp{
         float scale;
         int xPos;
         int yPos;
-        string group;
+        string group_line1;
+        string group_line2;
         string project_line1;
         string project_line2;
         string video_name;
@@ -35,5 +37,6 @@ class testApp : public ofBaseApp{
         ofxXmlSettings XML;
     
         Title * title;
-        ofVideoPlayer vid;
+        Lanterns * lanterns;
+    
 };

@@ -10,22 +10,29 @@ void testApp::setup()
     
     loadXML();
     
-    title = new Title(scale, xPos, yPos, group, project_line1, project_line2);
-    title->alpha = 255;    
-    vid.loadMovie(video_name);
-    vid.play();
+    lanterns = new Lanterns(video_name);
+    lanterns->alpha = 0;
+    lanterns->tweenAlphaTo(255, 4, EasingEquations::EASE_INOUT_CUBIC);
     
-    //ofToggleFullscreen();
+    title = new Title(scale, xPos, yPos, group_line1, group_line2, project_line1, project_line2);
+    title->alpha = 0;
+    title->tweenAlphaTo(255, 3, EasingEquations::EASE_INOUT_CUBIC, 3);
+    
+    if (ofGetWidth() == 3840) 
+    {
+        ofToggleFullscreen();
+    }
 }
 
 void testApp::loadXML()
 {
-    XML.loadFile("pinata_settings_R.xml");
+    XML.loadFile("conditions_settings_R.xml");
 
     scale = XML.getValue("root:title:scale", 1.0);
 	xPos = XML.getValue("root:title:xpos", 0);
 	yPos = XML.getValue("root:title:ypos", 0);
-    group = XML.getValue("root:title:group", "Default Group");
+    group_line1 = XML.getValue("root:title:group_line1", "null");
+    group_line2 = XML.getValue("root:title:group_line2", "null");
     project_line1 = XML.getValue("root:title:project_line1", "null");
     project_line2 = XML.getValue("root:title:project_line2", "null");
     video_name = XML.getValue("root:video:name", "null");
@@ -36,7 +43,7 @@ __________________________________________________________ */
 
 void testApp::update()
 {
-    vid.idleMovie();
+    lanterns->update();
 }
 
 /*  Draw
@@ -45,7 +52,8 @@ __________________________________________________________ */
 void testApp::draw()
 {
 	ofBackground(0, 0, 0);	
-    vid.draw(0, 0, ofGetWidth(), ofGetHeight());
+    
+    lanterns->draw();
     title->draw();
 }
 
@@ -54,7 +62,7 @@ __________________________________________________________ */
 
 void testApp::keyPressed  (int key){
 
-    if(key == 'i')
+   /* if(key == 'i')
     {
         title->tweenPosTo(xPos + 200, yPos,	0.6, EasingEquations::EASE_OUT_QUAD);
         title->tweenAlphaTo(255, 0.6,  EasingEquations::EASE_IN_QUAD);
@@ -63,7 +71,7 @@ void testApp::keyPressed  (int key){
     {
         title->tweenPosTo(xPos + 400, yPos,	0.6, EasingEquations::EASE_IN_QUAD);
         title->tweenAlphaTo(0, 0.6,  EasingEquations::EASE_OUT_QUAD);
-    }
+    }*/
 
 }
 void testApp::keyReleased(int key){}
