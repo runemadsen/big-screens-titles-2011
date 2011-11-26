@@ -1,8 +1,13 @@
 require 'rubygems'
 require 'fileutils'
+require 'xmlsimple'
 
 def create_folder(path)
   Dir::mkdir(path) unless File.directory? path
+end
+
+def delete_folder(path)
+  FileUtils.rm_r(path) if File.directory? path
 end
 
 projects = [
@@ -41,20 +46,32 @@ projects.each do |project|
   create_folder("export/#{folder_name}/R")
   
   # delete title apps if exist
-  FileUtils.rm_r("export/#{folder_name}/L/titles.app") if File.directory? "export/#{folder_name}/L/titles.app"
-  FileUtils.rm_r("export/#{folder_name}/M/titles.app") if File.directory? "export/#{folder_name}/M/titles.app"
-  FileUtils.rm_r("export/#{folder_name}/R/titles.app") if File.directory? "export/#{folder_name}/R/titles.app"
+  delete_folder("export/#{folder_name}/L/titles.app")
+  delete_folder("export/#{folder_name}/M/titles.app")
+  delete_folder("export/#{folder_name}/R/titles.app")
   
   # move app into folders
   FileUtils.cp_r("bin/emptyExampleDebug.app", "export/#{folder_name}/L/titles.app")
   FileUtils.cp_r("bin/emptyExampleDebug.app", "export/#{folder_name}/M/titles.app")
   FileUtils.cp_r("bin/emptyExampleDebug.app", "export/#{folder_name}/R/titles.app")
   
-  # rename to "titles"
-  # File.rename("export/#{folder_name}/L/emptyExampleDebug.app", "export/#{folder_name}/L/titles.app")
-  # File.rename("export/#{folder_name}/M/emptyExampleDebug.app", "export/#{folder_name}/M/titles.app")
-  # File.rename("export/#{folder_name}/R/emptyExampleDebug.app", "export/#{folder_name}/R/titles.app")
+  # create xml hashes
+  left_hash = project.merge({ :scale => 1.4, :xpos => 1140, :ypos => 400, :video_name => folder_name + "_L.mov" })
+  middle_hash = project.merge({ :scale => 1.4, :xpos => 720, :ypos => 400, :video_name => folder_name + "_M.mov" })
+  right_hash = project.merge({ :scale => 1.4, :xpos => 120, :ypos => 400, :video_name => folder_name + "_R.mov" })
+  
+  # delete old xml files
+  delete_folder("export/#{folder_name}/L/settings.xml")
+  delete_folder("export/#{folder_name}/M/settings.xml")
+  delete_folder("export/#{folder_name}/R/settings.xml")
+  
+  # create xml file objects
+  left_xml = File.new("export/#{folder_name}/L/settings.xml", "w")
+  middle_xml = File.new("export/#{folder_name}/M/settings.xml", "w")
+  right_xml = File.new("export/#{folder_name}/R/settings.xml", "w")
+  
+  # write to the files
+  left_xml.puts XmlSimple.xml_out(left_hash, 'NoAttr' => true, 'RootName' => "root")
+  middle_xml.puts XmlSimple.xml_out(middle_hash, 'NoAttr' => true, 'RootName' => "root")
+  right_xml.puts XmlSimple.xml_out(right_hash, 'NoAttr' => true, 'RootName' => "root")
 end
-
-# export xml into each folder
-  # overwrite if file exists, if not create it

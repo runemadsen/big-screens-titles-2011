@@ -28,16 +28,16 @@ void testApp::setup()
 
 void testApp::loadXML()
 {
-    XML.loadFile("conditions_settings_R.xml");
+    XML.loadFile("settings.xml");
 
-    scale = XML.getValue("root:title:scale", 1.0);
-	xPos = XML.getValue("root:title:xpos", 0);
-	yPos = XML.getValue("root:title:ypos", 0);
-    group_line1 = XML.getValue("root:title:group_line1", "null");
-    group_line2 = XML.getValue("root:title:group_line2", "null");
-    project_line1 = XML.getValue("root:title:project_line1", "null");
-    project_line2 = XML.getValue("root:title:project_line2", "null");
-    video_name = XML.getValue("root:video:name", "null");
+    scale = XML.getValue("root:scale", 1.0);
+	xPos = XML.getValue("root:xpos", 0);
+	yPos = XML.getValue("root:ypos", 0);
+    group_line1 = XML.getValue("root:group_line1", "null");
+    group_line2 = XML.getValue("root:group_line2", "null");
+    project_line1 = XML.getValue("root:project_line1", "null");
+    project_line2 = XML.getValue("root:project_line2", "null");
+    video_name = XML.getValue("root:video_name", "null");
 }
 
 /*  Update
