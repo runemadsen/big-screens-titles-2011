@@ -16,12 +16,14 @@ void testApp::setup()
     
     title = new Title(scale, xPos, yPos, group_line1, group_line2, project_line1, project_line2);
     title->alpha = 0;
-    title->tweenAlphaTo(255, 3, EasingEquations::EASE_INOUT_CUBIC, 3);
+    title->tweenAlphaTo(255, 3, EasingEquations::EASE_INOUT_CUBIC, 2);
     
     if (ofGetWidth() == 3840) 
     {
         ofToggleFullscreen();
     }
+    
+    fading_down = false;
 }
 
 void testApp::loadXML()
@@ -44,6 +46,13 @@ __________________________________________________________ */
 void testApp::update()
 {
     lanterns->update();
+
+    if(ofGetElapsedTimeMillis() > 10000 && !fading_down)
+    {
+        title->tweenAlphaTo(0, 3, EasingEquations::EASE_INOUT_CUBIC);
+        lanterns->tweenAlphaTo(0, 4, EasingEquations::EASE_INOUT_CUBIC, 1);
+        fading_down = true;
+    }
 }
 
 /*  Draw

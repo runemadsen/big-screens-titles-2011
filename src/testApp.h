@@ -38,5 +38,6 @@ class testApp : public ofBaseApp{
     
         Title * title;
         Lanterns * lanterns;
+        bool fading_down;
     
 };
